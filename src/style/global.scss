@@ -1,0 +1,268 @@
+/* *******************全局样式******************** */
+// 隐藏
+.g-hide {
+    display: none;
+}
+
+// 显示
+.g-show {
+    display: block;
+}
+
+// 禁用，禁止点击
+.g-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+// 清除浮动
+.g-clear-fix {
+    &::after {
+        display: block;
+        height: 0;
+        overflow: hidden;
+        clear: both;
+        visibility: hidden;
+        content: ".";
+    }
+}
+
+// 遮罩层
+.g-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+// 隐藏滚动条，适用于可以滚动但不需要滚动条的场景
+.g-hide-scroll {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// 背景图片，再定义一个background-image去覆盖
+.g-bg-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+/* *******************布局类样式******************** */
+
+// 水平居中
+.x-center {
+    display: flex;
+    justify-content: center;
+}
+
+// 垂直居中
+.y-center {
+    display: flex;
+    align-items: center;
+}
+
+// 水平垂直居中
+.xy-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// 垂直水平居中并且纵向排列
+.yx-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+// 垂直排列并且两端对齐
+.y-center__between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// 垂直排列
+.y-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+// 水平排列
+.x-flex {
+    display: flex;
+}
+
+/* *******************文本类样式******************** */
+// 单行省略号，注意要加宽度，否则不生效
+.single-line-ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 多行省略号，行数自定义，引用时可以动态设置-webkit-line-clamp
+.multiple-line-ellipsis {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.multiple-line-ellipsis--3 {
+    @extend .multiple-line-ellipsis;
+
+    -webkit-line-clamp: 3;
+}
+
+.multiple-line-ellipsis--4 {
+    @extend .multiple-line-ellipsis;
+
+    -webkit-line-clamp: 4;
+}
+
+.multiple-line-ellipsis--5 {
+    @extend .multiple-line-ellipsis;
+
+    -webkit-line-clamp: 5;
+}
+
+/* *******************三角形******************** */
+// 垂直方向的三角形
+.g-triangle-vertical {
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+// 水平方向的三角形
+.g-triangle-horizontal {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+// 向上
+.g-triangle-top {
+    @extend .g-triangle-vertical;
+
+    border-bottom: 5px solid #333;
+}
+
+// 向下
+.g-triangle-bottom {
+    @extend .g-triangle-vertical;
+
+    border-top: 5px solid #333;
+}
+
+// 向下
+.g-triangle-left {
+    @extend .g-triangle-horizontal;
+
+    border-right: 5px solid #333;
+}
+
+// 向下
+.g-triangle-right {
+    @extend .g-triangle-horizontal;
+
+    border-left: 5px solid #333;
+}
+
+/* *******************全局mixin******************** */
+@mixin set-bg-img($url) {
+    @extend .g-bg-img;
+
+    background-image: url($url);
+}
+
+@mixin multiple-ellipsis($width: 100%, $display: block, $line: 2) {
+    display: $display;
+    width: $width;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+/**
+  bottom: 底，size: 边，dir：方向
+ */
+@mixin create-triangle($bottom: 5px, $size: 6px, $dir: 'top', $color: #333) {
+    $border-size: $bottom solid $color;
+    $transparent-size: $size solid transparent;
+
+    width: 0;
+    height: 0;
+
+    @if ($dir == 'top' or $dir == 'bottom') {
+        width: 0;
+        height: 0;
+        border-right: $transparent-size;
+        border-left: $transparent-size;
+
+        @if ($dir == 'top') {
+            border-bottom: $border-size;
+        }
+
+        @if ($dir == 'bottom') {
+            border-top: $border-size;
+        }
+    }
+
+    @if ($dir == 'left' or $dir == 'right') {
+        width: 0;
+        height: 0;
+        border-top: $transparent-size;
+        border-bottom: $transparent-size;
+
+        @if ($dir == 'left') {
+            border-right: $border-size;
+        }
+
+        @if ($dir == 'right') {
+            border-left: $border-size;
+        }
+    }
+}
+
+.g-card {
+    box-sizing: border-box;
+    width: 355px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background: #fff;
+    border-radius: $--border-radius-lg;
+}
+
+.g-bottom-btn {
+    position: fixed;
+    bottom: 20px;
+    width: 345px;
+    margin-left: 15px;
+}
+
+.g-bottom-btn--square {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    font-size: $--font-size-md;
+    color: #fff;
+    background: $--main-color;
+    box-shadow: 0 3px 43px 0 rgba(114, 114, 114, 0.28);
+}

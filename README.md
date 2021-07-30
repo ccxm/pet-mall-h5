@@ -1,0 +1,1 @@
+- goodsNum和purchaseNum
