@@ -30,6 +30,8 @@
 
 - [x] 查看商品详情
 
+- [x] 实现看了又看功能
+
 - [x] 加入购物车
 
 - [x] 设置支付密码
@@ -39,6 +41,8 @@
 - [x] 下单
 
 - [x] 查看历史支付订单
+
+- [x] 短评
 
 - [x] 评论
 
@@ -59,52 +63,75 @@ npm run serve
 
 - **注册与登录**
 
-![article-bg-photos/u_06444357027/14767060-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/14767060-f10c-11eb-8281-558369f69f71.png)
-
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/86573e00-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **首页**
 
-![article-bg-photos/u_06444357027/304f7f70-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/304f7f70-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/96ee1180-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **详情页**
 
-![article-bg-photos/u_06444357027/3de213a0-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/3de213a0-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/9e1fcde0-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **下单页**
 
-![article-bg-photos/u_06444357027/5733b480-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/5733b480-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/a51c4970-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **支付页**
 
-![article-bg-photos/u_06444357027/60f8ed00-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/60f8ed00-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/aa8c7fb0-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **订单列表页**
 
-![article-bg-photos/u_06444357027/724c32b0-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/724c32b0-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/aea75f20-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **写评论**
 
-![article-bg-photos/u_06444357027/a8a6d720-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/a8a6d720-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/b25c50d0-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **分类页**
 
-![article-bg-photos/u_06444357027/8c1155e0-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/8c1155e0-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/b6f90a70-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **购物车**
 
-![article-bg-photos/u_06444357027/9dc75500-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/9dc75500-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/bac0c0d0-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **个人中心**
 
-![article-bg-photos/u_06444357027/b8c06450-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/b8c06450-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/c163d1c0-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **收货地址**
 
-![article-bg-photos/u_06444357027/cba7de90-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/cba7de90-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/c5ffef20-f10f-11eb-8281-558369f69f71.png">
+</div>
 
 - **设置密码**
 
-![article-bg-photos/u_06444357027/d8110df0-f10c-11eb-8281-558369f69f71.png](https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/d8110df0-f10c-11eb-8281-558369f69f71.png)
+<div align=center>
+<img src="https://blog.cxmmao.com/blog-images/article-bg-photos/u_06444357027/c9ee1940-f10f-11eb-8281-558369f69f71.png">
+</div>
 
-
-觉得写得还不错的记得给个star哦，持续更新~
+--- 
+***觉得写得还不错的记得给个star哦，持续更新~***
