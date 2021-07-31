@@ -1,5 +1,5 @@
 <template>
-    <div class="address x-flex" :class="{'g-disabled': disabled}">
+    <div class="address x-flex" :class="{'g-disabled': disabled}" @click="select">
         <div class="address__left y-center">
             <van-icon name="location" size="20" />
         </div>
@@ -15,7 +15,7 @@
                 size="20"
                 :name="isEdit ? 'edit' : 'arrow'"
                 :color="isEdit ? '#ff0051' : '#969799'"
-                @click.native="toEditAddress"
+                @click.stop.native="toEditAddress"
             />
         </div>
     </div>
@@ -36,6 +36,9 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        index: {
+            type: Number
         }
     },
     computed: {
@@ -45,11 +48,12 @@ export default {
     },
     methods: {
         toEditAddress() {
-            this.isEdit ? this.$router.push(`/address?isUpdate=true&id=${this.info.addressId}`) : this.$router.push('/address-list')
+            this.isEdit ? this.$router.push(`/address?isUpdate=true&id=${this.info.addressId}`) : this.$router.push('/address-list?from=order')
         },
         select() {
-            if (this.$route.path === '/address-list') {
-                // const index =
+            if (this.isEdit && this.$route.query.from === 'order') {
+                this.$store.dispatch('address/selectIndex', this.index)
+                this.$router.back()
             }
         }
     }

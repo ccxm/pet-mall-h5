@@ -1,6 +1,6 @@
 <template>
     <div class="address-list">
-        <address-item v-for="item in addressList" :key="item.addressId" :is-edit="true" :info="item" />
+        <address-item v-for="(item, index) in addressList" :key="item.addressId" :is-edit="true" :info="item" :index="index" />
         <div class="g-bottom-btn">
             <van-button round block type="info" @click="toAdd">新增地址</van-button>
         </div>
