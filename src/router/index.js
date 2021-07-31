@@ -66,7 +66,8 @@ const router = new VueRouter({
             component: () => import('@/pages/order'),
             meta: {
                 title: '确认订单',
-                hideTabBar: true
+                hideTabBar: true,
+                showNavLeft: true
             }
         },
         {
@@ -126,7 +127,8 @@ const router = new VueRouter({
             meta: {
                 title: '写评论',
                 hideTabBar: true,
-                showNavHeader: false
+                showNavHeader: false,
+                showNavLeft: true
             }
         },
         {
