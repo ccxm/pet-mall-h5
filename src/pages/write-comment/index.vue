@@ -50,11 +50,9 @@ export default {
                 this.$tips.info('请将表单填写完整')
                 return
             }
-            const loadingInstance = this.$tips.loading('上传图片中')
+            const loadingInstance = this.$tips.loading('保存中')
             await sleep(300)
             await this.uploadImage(commentDto)
-            loadingInstance.message = '保存中'
-            console.log(loadingInstance)
             this.submit(commentDto, loadingInstance)
         },
         async submit(commentDto, loadingInstance) {
@@ -70,6 +68,9 @@ export default {
             const count = commentDto.commentList.reduce((sum, item) => {
                 return (sum += item.imgList.length)
             }, 0)
+            if (!count) {
+                return
+            }
             let i = 0
             return new Promise(async resolve => {
                 for (const commentItem of commentDto.commentList) {
