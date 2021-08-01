@@ -17,6 +17,7 @@
                             <van-button
                                 size="mini"
                                 type="primary"
+                                color="#ff3f3f"
                                 native-type="button"
                                 :class="{'g-disabled': startCount}"
                                 @click.native="getVerifyCode"
@@ -192,6 +193,8 @@ export default {
 
             button {
                 width: 100px;
+                background: $--main-color;
+                border-color: $--main-color;
                 border-radius: $--border-radius-md;
             }
         }
