@@ -3,7 +3,8 @@ export const getGoodsDto = () => {
         currentPage: 0,
         pagingSize: 6,
         priceSort: null,
-        saleVolumeSort: null
+        saleVolumeSort: null,
+        classify: null
     }
 }
 

@@ -2,19 +2,19 @@
     <div class="classify x-flex">
         <div class="classify-left">
             <span
-                v-for="(item, index) in left"
-                :key="index"
+                v-for="(item, classifyKey) in classify"
+                :key="classifyKey"
                 class="classify-left-item xy-center"
-                :class="{'classify-left-item--selected': selectedLeftIndex === index}"
-                @click="selectedLeftIndex = index"
-            >{{ item }}</span>
+                :class="{'classify-left-item--selected': selectedClassify === classifyKey}"
+                @click="select(classifyKey)"
+            >{{ item.label }}</span>
         </div>
         <div class="classify-right y-flex">
             <goods-nav-tab @change="sortChange" />
             <scroll-view
                 v-model="isLoading"
                 :is-pulling="isPulling"
-                :is-load-all="goodsLength === goodsList.length"
+                :is-load-all="isLoadAll"
                 :distance="10"
                 @pull-down="fetchGoodsList(true)"
                 @reach-bottom="fetchGoodsList"
@@ -31,6 +31,7 @@ import OrderItem from '@/components/common/OrderItem'
 import ScrollView from '@/components/common/ScrollView'
 import GoodsNavTab from '@/components/common/GoodsNavTab'
 import FetchGoodsListMixins from '@/mixins/FetchGoodsListMixins'
+import { CLASSIFY_ENUM } from '../../config/constant'
 
 export default {
     name: 'Sort',
@@ -38,10 +39,19 @@ export default {
     mixins: [FetchGoodsListMixins],
     data() {
         return {
-            left: [
-                '猫咪'
-            ],
-            selectedLeftIndex: 0
+            classify: CLASSIFY_ENUM,
+            selectedClassify: CLASSIFY_ENUM.CAT.key
+        }
+    },
+    methods: {
+        select(classifyKey) {
+            if (this.selectedClassify !== classifyKey) {
+                this.page = -1
+                this.selectedClassify = classifyKey
+                this.classifyKey = classifyKey
+                console.log(this.classifyKey)
+                this.fetchGoodsList(true)
+            }
         }
     }
 }

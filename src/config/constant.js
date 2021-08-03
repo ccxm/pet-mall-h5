@@ -88,3 +88,18 @@ export const PAYMENT_STATE = {
         color: ''
     }
 }
+
+export const CLASSIFY_ENUM = {
+    CAT: {
+        key: 'CAT',
+        label: '猫咪'
+    },
+    DOG: {
+        key: 'DOG',
+        label: '狗狗'
+    },
+    TOOL: {
+        key: 'TOOL',
+        label: '工具'
+    }
+}
