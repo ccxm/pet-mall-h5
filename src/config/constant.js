@@ -97,9 +97,5 @@ export const CLASSIFY_ENUM = {
     DOG: {
         key: 'DOG',
         label: '狗狗'
-    },
-    TOOL: {
-        key: 'TOOL',
-        label: '工具'
     }
 }
