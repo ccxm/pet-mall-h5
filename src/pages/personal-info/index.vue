@@ -4,7 +4,7 @@
             <van-cell title="邮箱" :value="userInfo.email" />
             <van-cell title="昵称" :value="userInfo.nickName" />
             <van-cell title="性别" :value="userInfo.gender ? '男' : '女'" />
-            <van-cell title="头像" v-if="userInfo.avatarUrl">
+            <van-cell v-if="userInfo.avatarUrl" title="头像">
                 <div slot="default">
                     <img v-preview :src="userInfo.avatarUrl | addImagePrefix">
                 </div>

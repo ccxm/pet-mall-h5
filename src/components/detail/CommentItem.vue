@@ -9,7 +9,7 @@
             <p class="comment-item-body__content">{{ info.comment }}</p>
             <div class="comment-item-body__imgs y-center__between">
                 <template v-for="(img, index) in info.imgList">
-                    <img v-preview :key="index" :src="img | addImagePrefix">
+                    <img :key="index" v-preview :src="img | addImagePrefix">
                 </template>
             </div>
         </div>

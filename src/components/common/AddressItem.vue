@@ -38,7 +38,8 @@ export default {
             default: false
         },
         index: {
-            type: Number
+            type: Number,
+            default: 0
         }
     },
     computed: {

@@ -1,8 +1,8 @@
 <template>
     <div class="user-info y-center__between">
         <div class="user-info__left xy-center">
-            <img v-preview v-if="isLogin" :src="userInfo.avatarUrl | addImagePrefix">
-            <img v-preview v-else src="@/assets/images/user/default-photo.png">
+            <img v-if="isLogin" v-preview :src="userInfo.avatarUrl | addImagePrefix">
+            <img v-else v-preview src="@/assets/images/user/default-photo.png">
             <div v-if="isLogin" class="yx-center">
                 <span>{{ userInfo.nickName }}</span>
                 <span>喵币：{{ (userInfo.balance || 0).toFixed(2) }}</span>
