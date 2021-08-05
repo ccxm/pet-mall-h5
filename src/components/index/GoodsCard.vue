@@ -1,6 +1,6 @@
 <template>
     <div class="goods-card y-flex" @click="toDetail">
-        <img class="goods-card-bg" :src="info.masterImg">
+        <img v-lazy class="goods-card-bg" :src="info.masterImg">
         <div class="goods-info">
             <div class="goods-info__top y-center__between">
                 <span>{{ info.goodsName }}</span>

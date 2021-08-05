@@ -8,7 +8,7 @@
         <template v-for="(item, index) in goodsList">
             <div :key="item.goodsId" class="order-item y-center" :class="{'order-item--un-first': index !== 0}">
                 <div class="order-item__img">
-                    <img :src="item.masterImg">
+                    <img v-lazy :src="item.masterImg">
                     <van-icon
                         v-if="isCart"
                         class="order-item-checked"

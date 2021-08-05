@@ -75,6 +75,7 @@ export default {
         }
     },
     created() {
+        this.$store.dispatch('user/updateCartLength')
         this.isLogin && this.fetchCartList(true)
     },
     methods: {
