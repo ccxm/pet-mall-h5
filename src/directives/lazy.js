@@ -2,8 +2,8 @@ import Vue from 'vue'
 const loadingPath = require('../assets/svgs/loading.svg')
 
 class LazyLoad {
-    constructor(el) {
-        this.sourceSrc = el.src
+    constructor(el, src) {
+        this.sourceSrc = src
         this.el = el
         this.loadingPath = loadingPath
         this.checkIsInView(false)
@@ -22,7 +22,7 @@ class LazyLoad {
     checkIsInView() {
         setTimeout(() => {
             // console.log(this.el.offsetTop)
-            const imageBottom = this.el.offsetTop
+            const imageBottom = this.el.getBoundingClientRect().bottom
             // 可视区域+滚动条距离顶部位置 = 浏览器窗口底部的位置
             const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0
             const windowBottom = scrollHeight + window.innerHeight
@@ -38,12 +38,25 @@ class LazyLoad {
 
     addListener() {
         const intersectionObserver = new IntersectionObserver((entries) => {
-            if (entries[0].intersectionRatio <= 0) return
-            console.log('show')
-            setTimeout(() => {
-                this.showImage()
-                intersectionObserver.unobserve(this.el)
-            }, 100)
+            console.log(entries[0].intersectionRatio)
+            if (entries[0].intersectionRatio <= 0) {
+                this.showLoading()
+            } else {
+                // setTimeout(() => {
+                //     this.showImage()
+                //     intersectionObserver.unobserve(this.el)
+                // }, 100)
+                const image = new Image()
+                image.src = this.sourceSrc
+                image.onload = () => {
+                    this.showImage()
+                    intersectionObserver.unobserve(this.el)
+                }
+                image.onerror = () => {
+                    this.showLoading()
+                    intersectionObserver.unobserve(this.el)
+                }
+            }
         })
         intersectionObserver.observe(this.el)
     }
@@ -63,7 +76,7 @@ class LazyLoad {
 
 Vue.directive('lazy', {
     bind(el, binding) {
-        el.$lazy = new LazyLoad(el)
+        el.$lazy = new LazyLoad(el, binding.value)
     },
     componentUpdated(el) {
         if (el.$lazy && el.src && el.src !== el.$lazy.sourceSrc) {
