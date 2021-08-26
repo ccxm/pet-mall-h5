@@ -74,6 +74,7 @@ export default {
             this.$router.push('/order')
         },
         toCart() {
+            this.$store.dispatch('app/setSelectedTabIndex', 2)
             this.$router.push('/cart')
         }
     }
