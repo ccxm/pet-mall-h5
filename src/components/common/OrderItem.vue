@@ -25,7 +25,7 @@
                             <money :money="item.discountPrice" :need-point="true" />
                             <span v-if="!isClassify" class="price-wrapper__amount">x {{ value }}</span>
                         </div>
-                        <i v-if="isClassify" class="iconfont cart order-item__right-cart" />
+                        <i v-if="isClassify" class="iconfont cart order-item__right-cart" @click.self="addToCart"/>
                         <van-stepper
                             v-else-if="canModify"
                             :value="value"
@@ -66,6 +66,7 @@
 import Money from '@/components/common/Money'
 import { DeleteCartDto, UpdateCartDto } from '@/api/cart/dto'
 import { PAYMENT_STATE } from '@/config/constant'
+import { AddToCartDto } from '@/api/cart/dto'
 
 export default {
     name: 'OrderItem',
@@ -151,6 +152,14 @@ export default {
                 this.$emit('input', num)
             }).catch(() => {
                 this.$emit('input', num)
+            })
+        },
+        addToCart() {
+            const dto = new AddToCartDto()
+            dto.goodsId = this.info.goodsId
+            dto.goodsNum = 1
+            this.$api.cart.addToCart(dto).then(() => {
+                this.$store.dispatch('user/updateCartLength')
             })
         }
     }
