@@ -1,6 +1,6 @@
 export default {
     // 服务器根路径
-    BASE_URL: 'https://mall.cxmmao.com/pet-server',
+    BASE_URL: 'http://mall.cxmmao.com/pet-server',
     // 图片服务器路径
     IMAGE_BASE_URL: 'https://mall.cxmmao.com/pet-images/',
     // 成功的状态码

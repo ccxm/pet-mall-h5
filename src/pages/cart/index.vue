@@ -122,7 +122,7 @@ export default {
         addPropertyList(list = []) {
             list.forEach(item => {
                 item.isSelected = false
-                item.intro = item.goodsInfo.intro
+                item.intro = item.goodsInfo?.intro
             })
             return list
         },
