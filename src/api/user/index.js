@@ -54,4 +54,4 @@ export const getVerifyCode = params => post('/public/get-verify-code', params, {
     loadingText: '获取中'
 })
 
-export const uploadImage = file => upload('/user/upload-image', { file })
+export const uploadImage = file => upload('/public/upload-image', { file })

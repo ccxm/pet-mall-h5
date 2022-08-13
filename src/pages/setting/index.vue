@@ -85,7 +85,7 @@ export default {
                 const file = this.dto.avatarUrl[0]
                 if (file.file) {
                     this.$api.user.uploadImage(file.file).then(res => {
-                        resolve(res.url)
+                        resolve(res.avatarUrl)
                     })
                 } else {
                     resolve(file.url)
