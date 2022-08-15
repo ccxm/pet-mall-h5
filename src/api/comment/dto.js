@@ -7,6 +7,7 @@ export const CommentDto = () => {
 
 export const CommentItemDto = () => {
     return {
+        orderId: '',
         goodsId: '',
         comment: '',
         rate: null,

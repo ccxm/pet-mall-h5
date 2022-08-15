@@ -6,21 +6,22 @@
             <img class="comment-item__author__vip" src="@/assets/images/detail/vip-new.png">
         </div>
         <div class="comment-item-body">
-            <p class="comment-item-body__content">{{ info.comment }}</p>
+            <p class="comment-item-body__content">{{ info.list[0].comment }}</p>
             <div class="comment-item-body__imgs y-center__between">
-                <template v-for="(img, index) in info.imgList">
+                <template v-for="(img, index) in info.list[0].imgList">
                     <img :key="index" v-preview :src="img | addImagePrefix">
                 </template>
             </div>
         </div>
         <div class="comment-item-footer y-center__between">
-            <div class="comment-date">{{ info.createdAt | beautifyTime }}</div>
+            <div class="comment-date">{{ info.list[0].createAt | beautifyTime }}</div>
             <div class="comment-star">
                 <star
                     :goods-id="goodsId"
-                    :like-num="info.likeNum"
-                    :un-like-num="info.unLikeNum"
+                    :like-num="info.list[0].likeNum"
+                    :un-like-num="info.list[0].unLikeNum"
                     :comment-id="info.commentId"
+                    :comment-list-id="info.list[0].commentListId"
                     @change="handleChange"
                 />
             </div>
@@ -67,8 +68,8 @@ export default {
             const { likeNum, unLikeNum } = res
             // 在子组件里修改父组件的值，这里不太合法
             /* eslint-disable */
-            this.info.likeNum = likeNum
-            this.info.unLikeNum = unLikeNum
+            this.info.list[0].likeNum = likeNum
+            this.info.list[0].unLikeNum = unLikeNum
             console.log(this.info)
         }
     }

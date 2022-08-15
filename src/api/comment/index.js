@@ -17,4 +17,4 @@ export const writeComment = params => post('/comment/write-comment', params, {
 
 export const likeForComment = params => post('/comment/like-for-comment', params)
 
-export const uploadImage = file => upload('/comment/upload-image', { file })
+export const uploadImage = file => upload('/public/upload-image', { file })

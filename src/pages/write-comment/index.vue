@@ -57,7 +57,10 @@ export default {
         },
         async submit(commentDto, loadingInstance) {
             commentDto.orderId = this.orderId
-            await this.$api.comment.writeComment(commentDto)
+            for (const item of commentDto.commentList) {
+                item.orderId = this.orderId
+                await this.$api.comment.writeComment(item)
+            }
             loadingInstance.icon = 'success'
             loadingInstance.message = '评论成功'
             await sleep(500)
@@ -71,19 +74,16 @@ export default {
             if (!count) {
                 return
             }
-            let i = 0
             return new Promise(async resolve => {
                 for (const commentItem of commentDto.commentList) {
-                    commentItem.imgList = await Promise.all(commentItem.imgList.map(async file => {
-                        const { url } = await this.$api.comment.uploadImage(file.file)
-                        i++
-                        if (i >= count) {
-                            resolve()
-                        }
-                        console.log(url)
-                        return url
+                    const imgList = await Promise.all(commentItem.imgList.map(async file => {
+                        const { avatarUrl } = await this.$api.comment.uploadImage(file.file)
+                        return avatarUrl
                     }))
+                    console.log(imgList)
+                    commentItem.imgList = imgList
                 }
+                resolve()
             })
         }
     }

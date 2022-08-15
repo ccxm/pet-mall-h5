@@ -2,6 +2,7 @@
     <scroll-view
         v-model="isLoading"
         :is-pulling="isPulling"
+        :is-body-scroll="false"
         :is-load-all="listLength === list.length"
         height="100%"
         @pull-down="fetchOrderList(true)"

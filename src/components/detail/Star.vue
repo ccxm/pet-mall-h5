@@ -35,6 +35,10 @@ export default {
         commentId: {
             type: String,
             default: ''
+        },
+        commentListId: {
+            type: String,
+            default: ''
         }
     },
     data() {
@@ -71,6 +75,7 @@ export default {
             dto.goodsId = this.goodsId
             dto.commentId = this.commentId
             dto.likeState = this.likeStatus = status
+            dto.commentListId = this.commentListId
             this.$api.comment.likeForComment(dto).then(res => {
                 this.$emit('change', {
                     likeNum: res.likeNum,

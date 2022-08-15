@@ -23,7 +23,7 @@
                     <div class="order-item__price y-center__between" :class="{'order-item--not-modify': !canModify}">
                         <div class="price-wrapper x-flex">
                             <money :money="item.discountPrice" :need-point="true" />
-                            <span v-if="!isClassify" class="price-wrapper__amount">x {{ value }}</span>
+                            <span v-if="!isClassify" class="price-wrapper__amount">x {{ isCart ? value : item.purchaseNum }}</span>
                         </div>
                         <i v-if="isClassify" class="iconfont cart order-item__right-cart" @click.self="addToCart"/>
                         <van-stepper
